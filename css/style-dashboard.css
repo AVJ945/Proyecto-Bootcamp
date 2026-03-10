@@ -1,0 +1,94 @@
+/* --- Variables Pro de EcoEnergy --- */
+:root {
+    --navy: #0f172a;
+    --emerald: #10b981;
+    --border: #e2e8f0;
+    --navy-light: #1e293b;
+}
+
+body {
+    background-color: #f8fafc;
+    font-family: 'Inter', sans-serif;
+    color: #334155;
+    margin: 0;
+}
+
+.fw-extrabold { font-weight: 800; }
+.bg-navy { background-color: var(--navy); }
+
+/* --- Tarjetas Estilo Bento --- */
+.card {
+    border-radius: 20px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: white;
+}
+
+.kpi-card:hover, .chart-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* --- Tipografía KPI --- */
+.kpi-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #64748b;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.kpi-value {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    margin-bottom: 2px;
+    background: linear-gradient(135deg, var(--navy) 30%, var(--emerald));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+/* --- Contenedores de Gráficos --- */
+.chart-container {
+    position: relative;
+    height: 320px;
+    width: 100%;
+}
+
+.chart-container-sm {
+    position: relative;
+    height: 200px;
+}
+
+/* --- Gauge (Medidor) --- */
+.gauge-wrapper {
+    position: relative;
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+#gaugeValue {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--emerald);
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* --- Modo Impresión --- */
+@media print {
+    .no-print, .navbar { display: none !important; }
+    body { background: white; }
+    .card { border: 1px solid #eee !important; box-shadow: none !important; }
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .kpi-value { font-size: 1.8rem; }
+    .container-fluid { padding: 0 15px; }
+}

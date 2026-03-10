@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Pro | EcoEnergy</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="../css/style-calculadora.css">
+</head>
+
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="../index.html">
+                <span class="text-success"><i class="bi bi-lightning-charge-fill"></i></span> ECOENERGY
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-uppercase small fw-bold">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tecnologias.html">Tecnologías</a></li>
+                    <li class="nav-item"><a class="nav-link" href="datos.html">Datos</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="calculadora.html">Calculadora</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link text-success" href="creditos.html">Créditos</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-9 col-xl-8">
+
+                <div id="alerta-pais" class="alert d-none align-items-center shadow-sm mb-4 border-0 rounded-4 no-print" role="alert">
+                    <i class="bi bi-geo-alt-fill fs-4 me-3 text-success"></i>
+                    <div>
+                        Configuración activa: Matriz energética de <strong id="pais-detectado" class="text-uppercase text-success">...</strong>
+                    </div>
+                </div>
+
+                <div class="card-calc shadow-lg border-0 mb-5">
+                    <div class="card-header-eco text-white text-center rounded-top-4">
+                        <h2 class="fw-bold mb-2"><i class="bi bi-calculator me-2 text-success"></i>Calculadora de Huella</h2>
+                        <p class="mb-0 opacity-75">Impacto ambiental basado en tu consumo eléctrico real</p>
+                    </div>
+
+                    <div class="card-body p-4 p-md-5 bg-white">
+                        <form id="calc-form" class="row g-4">
+                            <div class="col-md-12">
+                                <label class="form-label fw-bold text-dark">Tu consumo mensual de energía</label>
+                                <div class="input-group input-group-eco">
+                                    <input type="number" step="any" class="form-control form-control-eco" id="consumo-usuario" placeholder="0.00" required min="1">
+                                    <span class="input-group-text bg-transparent border-0 fw-bold text-success">kWh/mes</span>
+                                </div>
+                                <div class="form-text mt-3 no-print">Consulta tu última factura para obtener el consumo promedio.</div>
+                            </div>
+
+                            <div class="col-12 no-print">
+                                <button type="submit" class="btn btn-success btn-calc w-100 py-3 shadow-sm">
+                                    GENERAR ANÁLISIS TÉCNICO <i class="bi bi-cpu-fill ms-2"></i>
+                                </button>
+                            </div>
+                        </form>
+
+                        <div id="contenedor-resultado" class="mt-5 d-none animate__animated animate__fadeIn">
+                            <div id="resultado-texto" class="mb-5"></div>
+
+                            <div class="row g-3 text-center">
+                                <div class="col-12 col-md-4">
+                                    <div class="impact-card">
+                                        <span class="impact-icon">🌳</span>
+                                        <div class="impact-value" id="val-arboles">0</div>
+                                        <div class="impact-unit">Árboles para compensar</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <div class="impact-card">
+                                        <span class="impact-icon">🚗</span>
+                                        <div class="impact-value" id="val-km">0</div>
+                                        <div class="impact-unit">Kilómetros en auto evitados</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <div class="impact-card border-success">
+                                        <span class="impact-icon">☁️</span>
+                                        <div class="impact-value text-success" id="val-co2">0</div>
+                                        <div class="impact-unit">kg CO₂ mensuales</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-center mt-5 no-print">
+                                <button onclick="window.print()" class="btn btn-outline-dark rounded-pill px-4 fw-bold">
+                                    <i class="bi bi-printer me-2"></i>Imprimir Reporte
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card border-0 rounded-4 shadow-sm no-print overflow-hidden">
+                    <div class="bg-dark p-3 text-center text-white">
+                        <h5 class="mb-0 fw-bold"><i class="bi bi-gear-fill me-2 text-success"></i>Metodología y Procedimiento</h5>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row g-4">
+                            <div class="col-md-6 border-end border-light">
+                                <div class="d-flex align-items-center mb-3">
+                                    <span class="step-number">1</span>
+                                    <span class="fw-bold">Factor de Emisión</span>
+                                </div>
+                                <p class="small text-muted mb-3">Calculamos la masa de CO₂ liberada según el factor de emisión de la red eléctrica local.</p>
+                                <div class="formula-box">
+                                    CO₂ (kg) = Consumo (kWh) × 0.4
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center mb-3">
+                                    <span class="step-number">2</span>
+                                    <span class="fw-bold">Absorción Forestal</span>
+                                </div>
+                                <p class="small text-muted mb-3">Estimamos los árboles necesarios para capturar esa emisión en un año (21kg/árbol).</p>
+                                <div class="formula-box">
+                                    Árboles = (CO₂ × 12) / 21
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <hr class="opacity-10">
+                                <div class="d-flex align-items-center mb-3">
+                                    <span class="step-number">3</span>
+                                    <span class="fw-bold">Equivalencia de Movilidad</span>
+                                </div>
+                                <p class="small text-muted mb-3">Comparamos la huella con las emisiones de un vehículo de combustión estándar (0.12kg CO₂/km).</p>
+                                <div class="formula-box text-center">
+                                    Km Evitados = CO₂ (kg) / 0.12
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 p-3 bg-light rounded-3 border-start border-4 border-success">
+                            <p class="mb-0 small text-muted">
+                                <i class="bi bi-info-circle-fill me-1 text-success"></i> 
+                                <strong>Nota:</strong> Los cálculos utilizan estándares internacionales de la Agencia Internacional de Energía (IEA).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="small mb-0 opacity-50">&copy; 2026 EcoEnergy Project - Ingeniería Sostenible</p>
+        </div>
+    </footer>
+
+    <script src="../js/calculadora.js"></script>
+</body>
+</html>

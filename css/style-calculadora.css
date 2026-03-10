@@ -1,0 +1,122 @@
+/* --- Variables --- */
+:root {
+    --eco-green: #10b981;
+    --eco-dark: #064e3b;
+    --navy: #0f172a;
+    --formula-bg: #f8fafc;
+}
+
+body { 
+    font-family: 'Inter', sans-serif; 
+    background-color: #f1f5f9; 
+}
+
+/* --- Tarjeta Principal --- */
+.card-calc { 
+    background: white; 
+    border-radius: 24px; 
+    overflow: hidden; 
+}
+
+.card-header-eco {
+    background: linear-gradient(135deg, var(--navy), #1e293b);
+    padding: 2.5rem 1.5rem;
+}
+
+/* --- Formulario Responsive --- */
+.input-group-eco {
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+}
+
+.input-group-eco:focus-within {
+    border-color: var(--eco-green);
+    background: white;
+}
+
+.form-control-eco {
+    border: none !important;
+    background: transparent !important;
+    font-size: 1.5rem !important;
+    font-weight: 800;
+    color: var(--navy);
+}
+
+.btn-calc {
+    background: var(--eco-green);
+    border: none;
+    border-radius: 16px;
+    color: white;
+    font-weight: 700;
+    transition: transform 0.2s;
+}
+
+.btn-calc:hover {
+    background: var(--eco-dark);
+    transform: translateY(-2px);
+}
+
+/* --- Cartas de Impacto --- */
+.impact-card {
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    height: 100%;
+}
+
+.impact-icon { font-size: 2.2rem; display: block; margin-bottom: 0.5rem; }
+.impact-value { font-size: 1.8rem; font-weight: 800; color: var(--navy); }
+.impact-unit { font-size: 0.7rem; font-weight: 700; color: var(--eco-green); text-transform: uppercase; }
+
+/* --- Metodología Estilizada --- */
+.formula-box {
+    background: #27272a;
+    color: #10b981;
+    border-radius: 10px;
+    padding: 12px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.step-number {
+    width: 28px;
+    height: 28px;
+    background: var(--eco-green);
+    color: white;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 768px) {
+    .card-header-eco { padding: 1.5rem 1rem; }
+    .form-control-eco { font-size: 1.2rem !important; }
+}
+
+@media print {
+    .no-print, .navbar, .btn-calc { display: none !important; }
+    .card-calc { box-shadow: none !important; border: 1px solid #eee !important; }
+    body { background: white; }
+}
+
+/* Hojas Confeti */
+.confeti-hoja {
+    position: fixed;
+    top: -50px;
+    z-index: 9999;
+    pointer-events: none;
+    animation: caer linear forwards;
+}
+
+@keyframes caer { to { transform: translateY(110vh) rotate(360deg); } }

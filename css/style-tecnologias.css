@@ -1,0 +1,104 @@
+/* --- Estilos Tecnologías EcoEnergy 2026 --- */
+
+:root {
+    --primary-green: #10b981;
+    --dark-bg: #0f172a;
+    --glass-white: rgba(255, 255, 255, 0.9);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #334155;
+}
+
+/* Header Estilo Pro */
+.tech-hero {
+    min-height: 60vh;
+    background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), url('../assets/imagenes/sostenibilidad.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.text-gradient {
+    background: linear-gradient(90deg, #2ecc71, #3498db);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #2ecc71; 
+}
+
+/* Iconos Decorativos */
+.icon-box {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+/* Tarjetas de Specs */
+.spec-card {
+    background: white;
+    padding: 1.25rem;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.spec-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-color: var(--primary-green);
+}
+
+.spec-card .label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 5px;
+}
+
+.spec-card .value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+/* Imágenes Responsivas */
+.img-frame {
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+.img-frame img {
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.img-frame:hover img {
+    transform: scale(1.08);
+}
+
+/* Animaciones */
+.reveal-init {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease-out;
+}
+
+.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsiva */
+@media (max-width: 991px) {
+    .tech-hero { min-height: 40vh; }
+    .text-lg-end { text-align: left !important; }
+    .justify-content-lg-end { justify-content: flex-start !important; }
+}

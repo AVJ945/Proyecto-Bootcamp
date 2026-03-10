@@ -1,0 +1,74 @@
+/* --- Variables EcoEnergy --- */
+:root {
+    --navy: #0f172a;
+    --emerald: #10b981;
+    --border: #e2e8f0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #334155;
+}
+
+.fw-extrabold { font-weight: 800; }
+.text-navy { color: var(--navy); }
+
+/* Quick Stats */
+.quick-stat {
+    min-width: 120px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.quick-stat:hover {
+    border-color: var(--emerald) !important;
+    transform: translateY(-2px);
+}
+
+/* Tabla Estilo */
+thead th {
+    background-color: var(--navy) !important;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 1.2rem 1rem !important;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border: none !important;
+}
+
+tbody td {
+    padding: 1rem !important;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+tbody tr:hover {
+    background-color: #f8fafc !important;
+}
+
+/* Buscador */
+.search-box input:focus {
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+    border-color: var(--emerald) !important;
+}
+
+/* Animación */
+.row-fade-in {
+    animation: fadeInUp 0.5s ease backwards;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Table Scroll */
+.table-responsive::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+}
+.table-responsive::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
