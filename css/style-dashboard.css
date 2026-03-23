@@ -23,6 +23,16 @@ body {
     background: white;
 }
 
+.text-white-50 {
+    --bs-text-opacity: 1;
+    color: #6c757d !important;
+}
+
+.h3, h3 {
+    font-size: calc(1.3rem + .6vw);
+    color: #1e293b;
+}
+
 .kpi-card:hover, .chart-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.08) !important;
